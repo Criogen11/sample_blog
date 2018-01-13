@@ -5,11 +5,12 @@ class ContactsController < ApplicationController
 	end	
 
 	def create
-  	render plain: params[:contacts].inspect
   	data = params[:contacts]
   	@cont = Contact.create(contact_params)
   	
   end
+
+  private
 
   def contact_params
 		params.require(:contacts).permit(:email, :message)
